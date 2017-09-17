@@ -4,11 +4,19 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">  
       
 <configuration>  
+
+	<settings> 
+		<setting name="logImpl" value="LOG4J"/>
+	</settings>
+	
     <!-- 全局别名设置，在映射文件中只需写别名，而不必写出整个类路径  -->  
     <typeAliases>    
          <typeAlias type="com.it.elec.model.Person" alias="Person"/>  
+         <typeAlias type="com.it.elec.model.ElecosUser" alias="ElecosUser"/>  
     </typeAliases>     
       <mappers>  
         <mapper resource="com/it/elec/mapping/PersonMapper.xml" />  
+        <mapper resource="com/it/elec/mapping/ElecosUserMapper.xml" />  
     </mappers>
+
 </configuration> 

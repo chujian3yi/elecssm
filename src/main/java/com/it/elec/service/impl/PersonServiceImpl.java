@@ -17,6 +17,7 @@ public class PersonServiceImpl implements IPersonService {
     public PersonMapper getPersonMapper() {
         return personMapper;
     }
+    
     @Autowired
     public void setPersonMapper(PersonMapper personMapper) {
         this.personMapper = personMapper;
