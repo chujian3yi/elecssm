@@ -85,9 +85,9 @@ eval("document.location='"+action+"'");
       <table border="0" width="100%" cellspacing="0" cellpadding="0">
         <tr>
           <td width="100%" align="center">
-          <A href="elecMenuAction_loading.do" target="mainFrame"><font color="#FFFFFF"><b>返回首页</b></font></a>
+          <A href="${pageContext.request.contextPath }/elecMenuController/loading" target="mainFrame"><font color="#FFFFFF"><b>返回首页</b></font></a>
           <font color="#FFFFFF"><b>|</b></font>
-          <A href="elecMenuAction_logout.do"   target="_top"> <font color="#FFFFFF"><b>重新登录</b></font></A>
+          <A href="${pageContext.request.contextPath }/elecMenuController/logout"   target="_top"> <font color="#FFFFFF"><b>重新登录</b></font></A>
           <font color="#FFFFFF"><b>|</b></font>
           </td>
         </tr>

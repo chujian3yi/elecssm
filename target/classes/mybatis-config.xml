@@ -13,10 +13,17 @@
     <typeAliases>    
          <typeAlias type="com.it.elec.model.Person" alias="Person"/>  
          <typeAlias type="com.it.elec.model.ElecosUser" alias="ElecosUser"/>  
+         <typeAlias type="com.it.elec.model.ElecosPopedom" alias="ElecosPopedom"/>
+         <typeAlias type="com.it.elec.model.ElecosSystemDDL" alias="ElecosSystemDDL"/>
+         <typeAlias type="com.it.elec.model.ElecosRole" alias="ElecosRole"/>
     </typeAliases>     
-      <mappers>  
+    <mappers>  
         <mapper resource="com/it/elec/mapping/PersonMapper.xml" />  
         <mapper resource="com/it/elec/mapping/ElecosUserMapper.xml" />  
+        <mapper resource="com/it/elec/mapping/ElecosPopedomMapper.xml"/>
+        <mapper resource="com/it/elec/mapping/ElecosSystemDDLMapper.xml"/>
+        <mapper resource="com/it/elec/mapping/ElecosRoleMapper.xml"/>
+        
     </mappers>
 
 </configuration> 

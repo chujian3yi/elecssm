@@ -1,7 +1,8 @@
 package com.it.elec.model;
 
-import java.sql.Timestamp;
 import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * Created by Administrator on 2017/9/16.
@@ -9,20 +10,36 @@ import java.util.Date;
 public class ElecosUser {
 
     private Integer userId;
-    private int jctId;
+    private String jctId;
     private String userName;
     private String logonName;
     private String logonPwd;
-    private int sexId;
-    private Timestamp birthday;
+    private String sexId;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")  
+    private Date birthday;
     private String address;
     private String contactTel;
     private String email;
     private String mobile;
     private String isDuty;
-    private int postId;
+    private String postId;
+    private String remark;
+  
+    private String state;
+    private Date createTime;
+    private Date updateTime;
+    private String jctUnitId;
+    
 
-    public Integer getUserId() {
+    public String getJctUnitId() {
+		return jctUnitId;
+	}
+
+	public void setJctUnitId(String jctUnitId) {
+		this.jctUnitId = jctUnitId;
+	}
+
+	public Integer getUserId() {
         return userId;
     }
 
@@ -30,11 +47,11 @@ public class ElecosUser {
         this.userId = userId;
     }
 
-    public int getJctId() {
+    public String getJctId() {
         return jctId;
     }
 
-    public void setJctId(int jctId) {
+    public void setJctId(String jctId) {
         this.jctId = jctId;
     }
 
@@ -62,21 +79,23 @@ public class ElecosUser {
         this.logonPwd = logonPwd;
     }
 
-    public int getSexId() {
+    public String getSexId() {
         return sexId;
     }
 
-    public void setSexId(int sexId) {
+    public void setSexId(String sexId) {
         this.sexId = sexId;
     }
 
    
 
-    public Timestamp getBirthday() {
+
+
+	public Date getBirthday() {
 		return birthday;
 	}
 
-	public void setBirthday(Timestamp birthday) {
+	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
 	}
 
@@ -120,29 +139,15 @@ public class ElecosUser {
         this.isDuty = isDuty;
     }
 
-    public int getPostId() {
+    public String getPostId() {
         return postId;
     }
 
-    public void setPostId(int postId) {
+    public void setPostId(String postId) {
         this.postId = postId;
     }
 
-    public Date getOndutyDate() {
-        return ondutyDate;
-    }
 
-    public void setOndutyDate(Date ondutyDate) {
-        this.ondutyDate = ondutyDate;
-    }
-
-    public Date getOffdutyDate() {
-        return offdutyDate;
-    }
-
-    public void setOffdutyDate(Date offdutyDate) {
-        this.offdutyDate = offdutyDate;
-    }
 
     public String getRemark() {
         return remark;
@@ -176,11 +181,75 @@ public class ElecosUser {
         this.updateTime = updateTime;
     }
 
-    private Date ondutyDate;
-    private Date offdutyDate;
-    private String remark;
-    private String state;
-    private Date createTime;
-    private Date updateTime;
+	public void setSexId(Integer sexId2) {
+		// TODO Auto-generated method stub
+		
+	}
 
+  /*******************非持久化javabean**********************/
+	
+	private Date ondutyDate;
+	
+	private Date offdutyDate;
+
+    public Date getOndutyDate() {
+        return ondutyDate;
+    }
+
+    public void setOndutyDate(Date ondutyDate) {
+        this.ondutyDate = ondutyDate;
+    }
+
+    public Date getOffdutyDate() {
+        return offdutyDate;
+    }
+
+    public void setOffdutyDate(Date offdutyDate) {
+        this.offdutyDate = offdutyDate;
+    }
+    
+    /**
+     * 判断页面跳转的是编辑用户页面还是查看用户页面
+     * viewflag==null:编辑页面
+     * viewflag=="1":查看用户页面
+     */
+	private String viewflag;
+	
+	public String getViewflag() {
+		return viewflag;
+	}
+
+	public void setViewflag(String viewflag) {
+		this.viewflag = viewflag;
+	}
+
+
+
+	/**
+	 * 		  message=1:表示登录名不能为空
+	 *        message=2:表示登录名在数据库中已经存在，此时不能保存
+	 *        message=3:表示登录名在数据库表不存在，此时可以保存
+	 */
+	private String message;
+	
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	/**
+	 * 记住登录密码
+	 */
+	private String password;
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	
 }

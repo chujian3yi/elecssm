@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.it.elec.dao.ElecosPopedomDao">
+
+<resultMap id="baseResultMap" type="ElecosPopedom">
+  <id property="mid"  column="MID"/>
+  <id property="pid"  column="pid"/>
+  <result property="popedomName" column="popedom_name"/>
+  <result property="url" column="url"/>
+  <result property="icon" column="icon"/>
+  <result property="target" column="target"/>
+  <result property="isParent" column="is_parent"/>
+
+  <result property="isMenu" column="is_menu"/>
+  <result property="createTime" column="create_time"/>
+  <result property="updateTime" column="update_time"/>
+</resultMap>
+
+<sql id="baseColumn">
+	MID,pid,popedom_name,url,icon,target,is_parent,is_menu,create_time,update_time
+</sql>
+
+    <!-- findPopedomsByUser -->
+
+
+    <select id="findPopedomsByUser" resultMap="baseResultMap">
+    	SELECT p.MID,p.pid,p.popedom_name,p.url,p.icon,p.target,p.is_parent,p.is_menu,p.create_time,p.update_time
+    	FROM elecos_user u, user_role ur,elecos_role_popedom rp,elecos_popedom p
+    	WHERE  u.user_id= ur.user_id
+    	AND ur.role_id = rp.role_id
+    	 AND rp.MID=p.MID
+    	 AND rp.pid=p.pid
+    	 AND u.logon_name= #{logonName}
+    </select>
+    
+    <select id="findPopedomList" resultMap="baseResultMap">
+    	select <include refid="baseColumn"/> from elecos_popedom
+    	where 1=1
+    </select>
+</mapper>
