@@ -1,6 +1,5 @@
-
-
 <%@ page language="java" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <table cellSpacing="1" cellPadding="0" width="90%" align="center" bgColor="#f5fafe" border="0">
  <tr>
@@ -15,9 +14,51 @@
 				         
 				         <table cellspacing="0" align="center" width="100%" cellpadding="1" rules="all" bordercolor="gray" border="1" 
 									style="BORDER-RIGHT:gray 1px solid; BORDER-TOP:gray 1px solid; BORDER-LEFT:gray 1px solid; WORD-BREAK:break-all; BORDER-BOTTOM:gray 1px solid; BORDER-COLLAPSE:collapse; BACKGROUND-COLOR:#f5fafe; WORD-WRAP:break-word">
+								
+								<c:if test="${popedomList!=null && popedomList.size()>0 }">
+													<c:set value="1" var="flag" scope="request"></c:set>
+														<c:forEach items="${popedomList}" var="popedom">
+															<c:choose>
+																<c:when test="${popedom.isParent}">
+																<c:if test="${flag==2 }">
+																	</td>
+																	</tr>
+																</c:if>
+																	<c:set value="1" var="flag" scope="request"></c:set>
+																	<tr onmouseover="this.style.backgroundColor = 'white'" onmouseout="this.style.backgroundColor = '#F5FAFE';">
+																	<td class="ta_01"  align="left" width="18%" height="22" background="../images/tablehead.jpg" >
+																		<input type="checkbox"  name="selectoper" id='<c:out value="${popedom.mid }"/>_<c:out value="${popedom.mid }"/>' value='<c:out value="${popedom.mid }"/>' value="" onClick='goSelect(this.id)' >
+																		${popedom.popedomName }：
+																		</td>
+																</c:when>
+																<c:otherwise>
+																	<c:if test="${flag ==1}">
+																		<td class="ta_01"  align="left" width="82%" height="22">
+																	</c:if>
+																	<c:set value="2" var="flag" scope="request"></c:set>
+																	
+																	
+																	<div>
+																	
+																	<c:choose>
+																		<c:when test="${popedom.flag =='1'}">
+																			<input type="checkbox"  name="selectoper" id='<c:out value="${popedom.pid }"/>_<c:out value="${popedom.mid }"/>' value='<c:out value="${popedom.mid }"/>' value='<c:out value="${popedom.pid }"/>_<c:out value="${popedom.mid }"/>' value='<c:out value="${popedom.mid }"/>' onClick='goSelect(this.id)' checked="checked" >
+																		</c:when>
+																		
+																		<c:when test="${popedom.flag=='2' }">
+																			<input type="checkbox"  name="selectoper" id='<c:out value="${popedom.pid }"/>_<c:out value="${popedom.mid }"/>' value='<c:out value="${popedom.mid }"/>' value='<c:out value="${popedom.pid }"/>_<c:out value="${popedom.mid }"/>' value='<c:out value="${popedom.mid }"/>' onClick='goSelect(this.id)' >
+																		</c:when>
+																	</c:choose>
+																	${popedom.popedomName }
+																	</div>
+																
+																</c:otherwise>
+															</c:choose>
+														</c:forEach>
+													</c:if>
+								
 													
 						     	</table> 
-				            
 				        
 				 </td>
 			  </tr>						

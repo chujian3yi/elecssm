@@ -55,7 +55,7 @@ public class ElecRoleController {
 		 * 根据roleId查询role_popedom联合表，返回mid pid,查询popedom表，返回popedomList
 		 */
 		List<ElecosPopedom> popedomlist = elecRoleService.findPopedomList(roleId);
-		request.setAttribute("popedomlist", popedomlist);
+		request.setAttribute("popedomList", popedomlist);
 		
 		/**
 		 * 根据roleId查询role_user联合表，返回userId,查询user表，返回userList
