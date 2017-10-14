@@ -26,6 +26,10 @@ user_id,jct_id,user_name,logon_name, logon_pwd,  sex_id  ,birthday ,address, ema
     	where logon_name = #{logonName}
     </select>
     
+    <select id="findUsers" resultMap="baseResultMap">
+    	select <include refid="baseColumn"/> from elecos_user
+    </select>
+    
     <!-- 查询用户 -->
     <select id="listUsers" resultMap="baseResultMap">
     select <include refid="baseColumn"/>

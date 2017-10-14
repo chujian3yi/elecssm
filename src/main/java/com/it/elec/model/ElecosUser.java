@@ -251,5 +251,18 @@ public class ElecosUser {
 		this.password = password;
 	}
 
+	/**判断用户是否选中：1:选中 	2：未选中 */
+	 
+	private String flag;
+
+
+	public String getFlag() {
+		return flag;
+	}
+
+	public void setFlag(String flag) {
+		this.flag = flag;
+	}
+	
 	
 }

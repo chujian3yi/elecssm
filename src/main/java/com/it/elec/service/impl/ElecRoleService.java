@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import com.it.elec.dao.ElecosPopedomDao;
 import com.it.elec.dao.ElecosRoleDao;
 import com.it.elec.dao.ElecosRolePopedomDao;
+import com.it.elec.dao.ElecosUserDao;
+import com.it.elec.dao.ElecosUserRoleDao;
 import com.it.elec.model.ElecosPopedom;
 import com.it.elec.model.ElecosRole;
 import com.it.elec.model.ElecosRolePopedom;
@@ -21,10 +23,16 @@ public class ElecRoleService implements IElecRoleService {
 	private ElecosRoleDao elecosRoleDao;
 	
 	@Autowired
+	private ElecosUserDao elecosUserDao;
+	
+	@Autowired
 	private ElecosPopedomDao elecosPopedomDao;
 
 	@Autowired
 	private ElecosRolePopedomDao elecosRolePopedomDao;
+	
+	@Autowired
+	private ElecosUserRoleDao elecosUserRoleDao;
 	/**
 	 * find all roles 
 	 */
@@ -84,7 +92,32 @@ public class ElecRoleService implements IElecRoleService {
 
 	@Override
 	public List<ElecosUser> findUserListByRoleId(Integer roleId) {
-		// TODO Auto-generated method stub
-		return null;
+		/**
+		 * all users
+		 */
+		List<ElecosUser> list = elecosUserDao.findUsers();
+		
+		List<ElecosUser> users = elecosUserRoleDao.findUserListByRoleId(roleId);
+		StringBuffer buffer = new StringBuffer();
+		
+		if (users!=null && users.size()>0) {
+			for (ElecosUser elecosUser : users) {
+				buffer.append(elecosUser.getUserId().toString()).append("@");
+				buffer.deleteCharAt(buffer.length()-1);
+			}
+		}
+		
+		String userIDs = buffer.toString();
+		if (list!=null && list.size()>0) {
+			for (ElecosUser elecosUser : list) {
+				if(userIDs.contains(elecosUser.getUserId().toString())){
+					elecosUser.setFlag("1");
+				}else {
+					elecosUser.setFlag("2");
+				}
+			}
+		}
+		
+		return list;
 	}
 }

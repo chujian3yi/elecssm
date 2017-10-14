@@ -62,7 +62,7 @@
 				        
 				 </td>
 			  </tr>						
-				 <input type="hidden" name="roleID" >						
+				 <input type="hidden" name="roleId" >						
 		 </table>	
         </fieldset>
 	  </td>
@@ -86,30 +86,32 @@
 				   <td class="ta_01"  align="center" width="40%" height=22 background="../images/tablehead.jpg">登录名</td>
 				   <td class="ta_01"  align="center" width="40%" height=22 background="../images/tablehead.jpg">用户姓名</td>
 				</tr>
-				 <tr onmouseover="this.style.backgroundColor = 'white'"
-					onmouseout="this.style.backgroundColor = '#F5FAFE';">
-					<td style="HEIGHT: 22px" class="ta_01" align="center" width="20%">
-						<input type="checkbox" name="selectuser" value="123456789" checked>
+				
+				
+			<c:forEach items="${userList }" var="users">
+				<tr onmouseover="this.style.backgroundColor = 'white'" onmouseout="this.style.backgroundColor = '#F5FAFE';">
+					<c:choose>
+					<c:when test="${ users.flag == '1'}">
+						 
+							<td style="HEIGHT: 22px" class="ta_01" align="center" width="20%">
+								<input type="checkbox" name="selectuser" value='<c:out value="${users.userId }"></c:out>' checked>
+							</td>
+					</c:when>
+					<c:when test="${users.flag =='2' }">
+							<td style="HEIGHT: 22px" class="ta_01" align="center" width="20%">
+								<input type="checkbox" name="selectuser" value='<c:out value="${users.userId }"></c:out>' >
+							</td>
+					</c:when>
+					</c:choose>
+					<td style="HEIGHT: 22px" class="ta_01" align="center" width="40%">
+						<c:out value="${users.logonName }"></c:out>
 					</td>
 					<td style="HEIGHT: 22px" class="ta_01" align="center" width="40%">
-						zhangsan
-					</td>
-					<td style="HEIGHT: 22px" class="ta_01" align="center" width="40%">
-						张三
+						<c:out value="${users.userName }"></c:out>
 					</td>
 				</tr>
-				<tr onmouseover="this.style.backgroundColor = 'white'"
-					onmouseout="this.style.backgroundColor = '#F5FAFE';">
-					<td style="HEIGHT: 22px" class="ta_01" align="center" width="20%">
-						<input type="checkbox" name="selectuser" value="123456789">
-					</td>
-					<td style="HEIGHT: 22px" class="ta_01" align="center" width="40%">
-						lisi
-					</td>
-					<td style="HEIGHT: 22px" class="ta_01" align="center" width="40%">
-						李四
-					</td>
-				</tr>
+			</c:forEach>	
+			
 		</table>
     </fieldset>
 	 </td>

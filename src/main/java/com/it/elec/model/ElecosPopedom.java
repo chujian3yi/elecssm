@@ -155,19 +155,49 @@ public class ElecosPopedom implements java.io.Serializable {
 
 	
 	
-	/*******************非持久化javabean属性***********************/
-	/**
-	 * 在ElecPopedom对象添加一个标识flag
-		    * 如果flag==1：此时页面的复选框被选中
-		    * 如果flag==2：此时页面的复选框不被选中
-	 */
+	/*******************非持久化bean属性***********************/
+	
+	/**在ElecPopedom对象添加一个标识flag ;如果flag==1：此时页面的复选框被选中;如果flag==2：此时页面的复选框不被选中*/
 	private String flag;
 
+	/**页面传递的权限数组*/
+	private String[] selectoper;
+	
+	/**页面传递的用户数组*/
+	private String[] selectuser;
+	
+	/**页面传递的角色id*/
+	private Integer roleId;
+	
 
 	public String getFlag() {
 		return flag;
 	}
 	public void setFlag(String flag) {
 		this.flag = flag;
+	}
+
+	public String[] getSelectoper() {
+		return selectoper;
+	}
+
+	public void setSelectoper(String[] selectoper) {
+		this.selectoper = selectoper;
+	}
+
+	public String[] getSelectuser() {
+		return selectuser;
+	}
+
+	public void setSelectuser(String[] selectuser) {
+		this.selectuser = selectuser;
+	}
+
+	public Integer getRoleId() {
+		return roleId;
+	}
+
+	public void setRoleId(Integer roleId) {
+		this.roleId = roleId;
 	}
 }

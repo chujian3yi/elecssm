@@ -28,6 +28,8 @@ public interface IElecPopedomService {
 
 	List<ElecosPopedom> findPopedomList();
 
+	void save(ElecosPopedom elecosPopedom);
+
 	
 
 }

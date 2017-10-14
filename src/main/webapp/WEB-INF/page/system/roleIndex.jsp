@@ -27,8 +27,8 @@ td div {
 		  
 		 function saveRole(){
 		 
-           document.Form2.roleID.value=document.Form1.roleID.value;
-		   document.Form2.action="saveRole.do";
+           document.Form2.roleId.value=document.Form1.roleId.value;
+		   document.Form2.action="${pageContext.request.contextPath}/elecRoleController/saveRole";
 		   document.Form2.submit();
 		}
 		
@@ -234,7 +234,7 @@ td div {
 						     	
 						   </td>
 						</tr>						
-					 <input type="hidden" name="roleId" >						
+					 <input type="hidden" name="roleId"  >						
 				 </table>	
 		        </fieldset>
 			  </td>

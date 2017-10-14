@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.it.elec.model.ElecosPopedom;
 import com.it.elec.model.ElecosRole;
@@ -62,6 +63,21 @@ public class ElecRoleController {
 		 */
 		
 		List<ElecosUser> userList = elecRoleService.findUserListByRoleId(roleId);
+		
+		request.setAttribute("userList", userList);
 		return "WEB-INF/page/system/roleEdit";
+	}
+	
+	/**
+	 * 
+	 * @Tile:save
+	 * @Description:TODO
+	 * @Author:anphy
+	 * @Return:ModelAndView重定向到roleIndex
+	 */
+	@RequestMapping(value="/saveRole")
+	public ModelAndView save(ElecosPopedom elecosPopedom){
+		elecPopedomService.save(elecosPopedom);
+		return new ModelAndView("redirect:/elecRoleController/roleIndex");
 	}
 }

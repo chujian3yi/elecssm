@@ -17,8 +17,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.it.elec.dao.ElecosPopedomDao;
+import com.it.elec.dao.ElecosUserRoleDao;
 import com.it.elec.model.ElecosPopedom;
 import com.it.elec.model.ElecosUser;
+import com.it.elec.model.ElecosUserRole;
 import com.it.elec.service.IElecPopedomService;
 
 /**
@@ -31,6 +33,9 @@ import com.it.elec.service.IElecPopedomService;
 public class ElecPopedomService implements IElecPopedomService {
 
 
+	@Autowired
+	private ElecosUserRoleDao elecosUserRoleDao;
+	
 	private ElecosPopedomDao elecosPopedomDao;
 
 	public ElecosPopedomDao getElecosPopedomDao() {
@@ -55,10 +60,70 @@ public class ElecPopedomService implements IElecPopedomService {
 
 	@Override
 	public List<ElecosPopedom> findPopedomList() {
-		// TODO Auto-generated method stub
 		List<ElecosPopedom> list = elecosPopedomDao.findPopedomList();
 		return list;
 	}
+
+	/**
+	 * save role_popedom
+	 * save user_role
+	 */
+	@Override
+	public void save(ElecosPopedom elecosPopedom) {
+		/**get roleId*/
+		Integer roleId = elecosPopedom.getRoleId();
+		
+		/**get String [] selectoper*/
+		String[] selectoper = elecosPopedom.getSelectoper();
+		
+		/**get String [] selectuser*/
+		String[] selectuser = elecosPopedom.getSelectuser();
+		
+		/**save role_popedom*/
+		this.saveRolePopedom(roleId,selectoper);
+		
+		/**save user_role*/
+		this.saveUserRole(roleId,selectuser);
+		
+	}
+
+	/**
+	 * 
+	 * @Tile:saveUserRole
+	 * @Description:TODO save role_popedom
+	 * @Author:anphy
+	 * @Return:void
+	 */
+	private void saveUserRole(Integer roleId, String[] selectuser) {
+		/**delete */
+		elecosUserRoleDao.delete(roleId);
+		
+		if (selectuser!=null && selectuser.length>0) {
+			for (String id : selectuser) {
+				ElecosUserRole elecosUserRole = new ElecosUserRole();
+				int userId=Integer.parseInt(id);
+				elecosUserRole.setUserId(userId);
+				elecosUserRole.setRoleId(roleId);
+				elecosUserRoleDao.save(elecosUserRole);
+			}
+		}
+		
+		
+	}
+
+	/**
+	 * 
+	 * @Tile:saveRolePopedom
+	 * @Description:TODO save role_popedom
+	 * @Author:anphy
+	 * @Return:void
+	 */
+	private void saveRolePopedom(Integer roleId, String[] selectoper) {
+		/***/
+		
+	}
+
+	
 
 
 	

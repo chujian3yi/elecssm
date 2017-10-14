@@ -17,6 +17,7 @@
          <typeAlias type="com.it.elec.model.ElecosSystemDDL" alias="ElecosSystemDDL"/>
          <typeAlias type="com.it.elec.model.ElecosRole" alias="ElecosRole"/>
          <typeAlias type="com.it.elec.model.ElecosRolePopedom" alias="ElecosRolePopedom"/>
+         <typeAlias type="com.it.elec.model.ElecosUserRole" alias="ElecosUserRole"/>
     </typeAliases>     
     <mappers>  
         <mapper resource="com/it/elec/mapping/PersonMapper.xml" />  
@@ -25,6 +26,7 @@
         <mapper resource="com/it/elec/mapping/ElecosSystemDDLMapper.xml"/>
         <mapper resource="com/it/elec/mapping/ElecosRoleMapper.xml"/>
         <mapper resource="com/it/elec/mapping/ElecosRolePopedomMapper.xml"/>
+        <mapper resource="com/it/elec/mapping/ElecosUserRoleMapper.xml"/>
         
     </mappers>
 

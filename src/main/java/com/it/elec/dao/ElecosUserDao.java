@@ -36,6 +36,8 @@ public interface ElecosUserDao {
 
 	void delete(Integer userId);
 
+	List<ElecosUser> findUsers();
+
 	
 
 	
