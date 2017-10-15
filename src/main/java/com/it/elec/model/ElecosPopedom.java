@@ -19,6 +19,8 @@ public class ElecosPopedom implements java.io.Serializable {
 	private boolean isMenu;
 	private Date createTime;
 	private Date updateTime;
+	
+	
 
 	public ElecosPopedom() {
 	}

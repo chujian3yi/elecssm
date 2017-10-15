@@ -13,8 +13,11 @@ package com.it.elec.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.it.elec.model.ElecosPopedom;
 import com.it.elec.model.ElecosUser;
+import com.it.elec.model.Page;
 
 /**
  * @ClassName:ElecosPopedomDao
@@ -37,5 +40,12 @@ public interface ElecosPopedomDao {
     List<ElecosPopedom> findPopedomsByUser(ElecosUser user);
 
 	List<ElecosPopedom> findPopedomList();
+
+	
+	/**分页
+	 * 查询所有权限
+	 * 
+	 * */
+	List<ElecosPopedom> findPopedomListPage( Page page);
 	
 }

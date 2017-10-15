@@ -5,6 +5,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.it.elec.model.ElecosPopedom;
 import com.it.elec.model.ElecosRole;
 import com.it.elec.model.ElecosUser;
+import com.it.elec.model.Page;
 import com.it.elec.service.IElecPopedomService;
 import com.it.elec.service.IElecRoleService;
 
@@ -25,6 +28,9 @@ public class ElecRoleController {
 	
 	@Autowired
 	private IElecPopedomService elecPopedomService;
+	
+	private static final Logger Logger = LoggerFactory.getLogger(ElecRoleController.class);
+	
 	/**
 	 * 
 	 * @Tile:home
@@ -37,8 +43,17 @@ public class ElecRoleController {
 		List<ElecosRole> roleList = elecRoleService.findRoleList();
 		request.setAttribute("roleList", roleList);
 		List<ElecosPopedom> popedomList = elecPopedomService.findPopedomList();
-		System.out.println(popedomList.get(5).isIsParent());
 		request.setAttribute("popedomList", popedomList);
+		
+		/**分页*/
+		Page page = new Page();
+		page.setPageNum("1");
+		page.setRows(10);
+		List<ElecosPopedom> popedoms = elecPopedomService.findPopedomList();
+		page.setTotalNum(popedoms.size());
+		List<ElecosPopedom> list = elecPopedomService.findPopedomListPage(page);
+		Logger.debug("1:popedoms {}", list.size());
+		
 		return "WEB-INF/page/system/roleIndex";
 	}
 	

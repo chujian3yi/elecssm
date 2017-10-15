@@ -37,4 +37,17 @@
     	select <include refid="baseColumn"/> from elecos_popedom
     	where 1=1
     </select>
+    
+    
+    
+    <!-- 分页 -->
+    <!-- 查询所有权限,一页10条 -->
+    <select id="findPopedomListPage" resultMap="baseResultMap">
+    	select <include refid="baseColumn"/> from elecos_popedom
+    	order by MID ASC 
+    	limit #{index},#{rows}
+    
+    </select>
+    
+    
 </mapper>
