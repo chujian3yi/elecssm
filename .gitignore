@@ -1,3 +1,7 @@
 #ºöÂÔÎÄ¼ş
 
+target
 /target/
+/bin/
+.settings/
+.classpath
