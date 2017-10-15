@@ -11,12 +11,15 @@
  */
 package com.it.elec.controller;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.it.elec.model.ElecCommonMsg;
 import com.it.elec.service.IElecCommonMsgService;
 
 /**
@@ -36,8 +39,15 @@ public class ElecCommonMsgController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(ElecCommonMsgController.class);
 	
+	/**
+	 * 查询监控信息
+	 * @return
+	 */
 	@RequestMapping(value="/actingIndex")
-	public String actingIndex() {
+	public String actingIndex(ElecCommonMsg msg) {
+		logger.debug(" 查询监控信息 ： actingIndex");
+		List<ElecCommonMsg> list = elecCommonMsgService.listCommonMsg(msg);
+		logger.debug("查询监控信息 {} 条",list.size());
 		return  "WEB-INF/page/system/actingIndex";
 	}
 

@@ -18,6 +18,7 @@
          <typeAlias type="com.it.elec.model.ElecosRole" alias="ElecosRole"/>
          <typeAlias type="com.it.elec.model.ElecosRolePopedom" alias="ElecosRolePopedom"/>
          <typeAlias type="com.it.elec.model.ElecosUserRole" alias="ElecosUserRole"/>
+         <typeAlias type="com.it.elec.model.ElecCommonMsg" alias="ElecCommonMsg"/>
     </typeAliases>     
     <mappers>  
         <mapper resource="com/it/elec/mapping/PersonMapper.xml" />  
@@ -27,7 +28,7 @@
         <mapper resource="com/it/elec/mapping/ElecosRoleMapper.xml"/>
         <mapper resource="com/it/elec/mapping/ElecosRolePopedomMapper.xml"/>
         <mapper resource="com/it/elec/mapping/ElecosUserRoleMapper.xml"/>
-        
+        <mapper resource="com/it/elec/mapping/ElecosCommonMsgMapper.xml"/>
     </mappers>
 
 </configuration> 

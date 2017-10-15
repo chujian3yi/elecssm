@@ -11,6 +11,10 @@
  */
 package com.it.elec.service;
 
+import java.util.List;
+
+import com.it.elec.model.ElecCommonMsg;
+
 /**
  * @ClassName:IElecCommonMsgService
  * @Description:TODO
@@ -18,5 +22,12 @@ package com.it.elec.service;
  * @date:2017年9月22日
  */
 public interface IElecCommonMsgService {
+
+	/**
+	 * 查询监控信息
+	 * @param msg
+	 * @return
+	 */
+	List<ElecCommonMsg> listCommonMsg(ElecCommonMsg msg);
 
 }

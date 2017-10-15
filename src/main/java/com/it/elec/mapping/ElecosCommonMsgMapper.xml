@@ -1,10 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper  namespace="com.it.elec.dao.ElecosCommonMsgMapper">
+<mapper  namespace="com.it.elec.dao.ElecosCommonMsgDao">
 
-<resultMap type="baseResultMap" id="ElecCommonMsg"></resultMap>
-
-	<!--  -->
+	<resultMap type="ElecCommonMsg" id="baseResultMap">
+		<id column="com_id" property="comID"/>
+		<result column="station_run" property="stationRun"/>
+		<result column="dev_run" property="devRun"/>
+		<result column="create_time" property="createDate"/>
+	</resultMap>
+ 	<sql id="baseColumList">
+ 		com_id,station_run,dev_run,create_time,update_time,createemp_id
+ 	</sql>
+ 	
+	<!-- 查询监控信息 -->
+	<select id="listCommonMsg" resultMap="baseResultMap">
+	select <include refid="baseColumList"/>
+	from elecos_commonmsg 
+	</select>
+	
 	
 </mapper>
