@@ -27,7 +27,6 @@
 		insert into user_role
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 		<if test="userId!=null "></if>
-		
 		</trim>
 	
 	</insert>
