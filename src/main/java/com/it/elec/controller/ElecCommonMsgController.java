@@ -19,6 +19,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.it.elec.model.ElecCommonMsg;
 import com.it.elec.service.IElecCommonMsgService;
 
@@ -46,7 +48,11 @@ public class ElecCommonMsgController {
 	@RequestMapping(value="/actingIndex")
 	public String actingIndex(ElecCommonMsg msg) {
 		logger.debug(" 查询监控信息 ： actingIndex");
+		PageHelper.startPage(1, 10);
 		List<ElecCommonMsg> list = elecCommonMsgService.listCommonMsg(msg);
+		PageInfo<ElecCommonMsg> pagehelper = new PageInfo<ElecCommonMsg>(list);
+		logger.debug("PageInfo: {}",pagehelper);
+		
 		logger.debug("查询监控信息 {} 条",list.size());
 		return  "WEB-INF/page/system/actingIndex";
 	}
