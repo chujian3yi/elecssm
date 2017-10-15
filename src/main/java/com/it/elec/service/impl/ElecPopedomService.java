@@ -21,6 +21,7 @@ import com.it.elec.dao.ElecosUserRoleDao;
 import com.it.elec.model.ElecosPopedom;
 import com.it.elec.model.ElecosUser;
 import com.it.elec.model.ElecosUserRole;
+import com.it.elec.model.Page;
 import com.it.elec.service.IElecPopedomService;
 
 /**
@@ -120,6 +121,20 @@ public class ElecPopedomService implements IElecPopedomService {
 	 */
 	private void saveRolePopedom(Integer roleId, String[] selectoper) {
 		/***/
+		
+	}
+
+	
+	/**分页
+	 * 查询所有权限
+	 * 
+	 * */
+	@Override
+	public List<ElecosPopedom> findPopedomListPage(Page page) {
+		
+		List<ElecosPopedom> list = elecosPopedomDao.findPopedomListPage(page);
+		
+		return list;
 		
 	}
 

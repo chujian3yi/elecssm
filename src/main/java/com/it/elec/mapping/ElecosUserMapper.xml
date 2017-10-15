@@ -158,4 +158,8 @@ user_id,jct_id,user_name,logon_name, logon_pwd,  sex_id  ,birthday ,address, ema
     	where user_id = #{userId}
     </delete>
     
+    
+
+    
+    
 </mapper>

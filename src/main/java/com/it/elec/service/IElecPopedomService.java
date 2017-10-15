@@ -15,6 +15,7 @@ import java.util.List;
 
 import com.it.elec.model.ElecosPopedom;
 import com.it.elec.model.ElecosUser;
+import com.it.elec.model.Page;
 
 /**
  * @ClassName:IElecPopedomService
@@ -29,6 +30,9 @@ public interface IElecPopedomService {
 	List<ElecosPopedom> findPopedomList();
 
 	void save(ElecosPopedom elecosPopedom);
+
+	/**分页*/
+	List<ElecosPopedom> findPopedomListPage(Page page);
 
 	
 
