@@ -15,6 +15,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.github.pagehelper.PageHelper;
 import com.it.elec.model.ElecosPopedom;
 import com.it.elec.model.ElecosUser;
 import com.it.elec.model.Page;
@@ -46,6 +47,7 @@ public interface ElecosPopedomDao {
 	 * 查询所有权限
 	 * 
 	 * */
+	
 	List<ElecosPopedom> findPopedomListPage( Page page);
 	
 }

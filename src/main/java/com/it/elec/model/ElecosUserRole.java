@@ -2,13 +2,15 @@ package com.it.elec.model;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class ElecosUserRole {
 
 	
 	private Integer roleId;
 	
 	private Integer userId;
-	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date createTime;
 	
 	private Date updateTime;

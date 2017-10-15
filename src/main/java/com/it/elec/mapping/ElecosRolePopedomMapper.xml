@@ -14,4 +14,23 @@
 		from elecos_role_popedom
 		where role_id=#{roleId}
 	</select>
+	
+	<delete id="delete">
+		delete from elecos_role_popedom
+		where role_id = #{roleId}
+	</delete>
+	
+	<insert id="save">
+		insert into elecos_role_popedom
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+		<if test="roleId!=null ">role_id,</if>
+		<if test="mid!=null ">MID,</if>
+		<if test="pid!=null ">pid,</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+		<if test="roleId!=null ">#{roleId},</if>
+		<if test="mid!=null ">#{mid},</if>
+		<if test="pid!=null ">#{pid},</if>
+		</trim>
+	</insert>
 </mapper>

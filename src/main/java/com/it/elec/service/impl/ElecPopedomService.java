@@ -17,8 +17,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.it.elec.dao.ElecosPopedomDao;
+import com.it.elec.dao.ElecosRolePopedomDao;
 import com.it.elec.dao.ElecosUserRoleDao;
 import com.it.elec.model.ElecosPopedom;
+import com.it.elec.model.ElecosRolePopedom;
 import com.it.elec.model.ElecosUser;
 import com.it.elec.model.ElecosUserRole;
 import com.it.elec.model.Page;
@@ -37,7 +39,11 @@ public class ElecPopedomService implements IElecPopedomService {
 	@Autowired
 	private ElecosUserRoleDao elecosUserRoleDao;
 	
+	@Autowired
 	private ElecosPopedomDao elecosPopedomDao;
+	
+	@Autowired
+	private ElecosRolePopedomDao elecosRolePopedomDao;
 
 	public ElecosPopedomDao getElecosPopedomDao() {
 		return elecosPopedomDao;
@@ -99,6 +105,7 @@ public class ElecPopedomService implements IElecPopedomService {
 		/**delete */
 		elecosUserRoleDao.delete(roleId);
 		
+		/**foreach  po save*/
 		if (selectuser!=null && selectuser.length>0) {
 			for (String id : selectuser) {
 				ElecosUserRole elecosUserRole = new ElecosUserRole();
@@ -120,7 +127,19 @@ public class ElecPopedomService implements IElecPopedomService {
 	 * @Return:void
 	 */
 	private void saveRolePopedom(Integer roleId, String[] selectoper) {
-		/***/
+		/**delete*/
+		elecosRolePopedomDao.delete(roleId);
+		
+		if (selectoper!=null && selectoper.length>0) {
+			for (String oper : selectoper) {
+				ElecosRolePopedom elecosRolePopedom = new ElecosRolePopedom();
+				String[] array =  oper.split("_");
+				elecosRolePopedom.setMid(array[0]);
+				elecosRolePopedom.setPid(array[1]);
+				elecosRolePopedom.setRoleId(roleId);
+				elecosRolePopedomDao.save(elecosRolePopedom);
+			}
+		}
 		
 	}
 

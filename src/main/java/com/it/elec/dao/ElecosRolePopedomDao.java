@@ -8,5 +8,9 @@ public interface ElecosRolePopedomDao {
 
 	List<ElecosRolePopedom> findMIDandPIDByRoleId(Integer roleId);
 
+	void delete(Integer roleId);
+
+	void save(ElecosRolePopedom elecosRolePopedom);
+
 
 }
