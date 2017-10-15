@@ -76,13 +76,12 @@
 							<tr onmouseover="this.style.backgroundColor = 'white'" onmouseout="this.style.backgroundColor = '#F5FAFE';">
 								<td style="HEIGHT:22px" align="center" width="40%">
 									<div class="scrollStyle" align="left" onmouseover="showInfoWithPanel(this)" onmouseout="hiddenInfoPanel(this)" style="table-layout:fixed;">
-										
+											<c:out value="${commonMsg.devRun }"></c:out>
 									</div>
 								</td>
 								<td style="HEIGHT:22px" align="center" width="40%">
 									<div class="scrollStyle" align="left" onmouseover="showInfoWithPanel(this)" onmouseout="hiddenInfoPanel(this)" style="table-layout:fixed;">
-										9点设备运行正常xcvcxvxcv设备运行正常xcvcxvxcv设备运行正常xcvcxvxcv设备运行正常xcvcxvxcv设备运行正常xcvcxvxcv设备运行正常xcvcxvxcv设备运行正常xcvcxvxcv设备运行正常xcvcxvxcv设备运行正常xcvcxvxcv设备运行正常xcvcxvxcv
-									</div>
+											<c:out value="${commonMsg.devRun }"></c:out>									</div>
 								</td>
 								<td style="HEIGHT:22px" align="center" width="20%">
 									2010-08-08 12:55:55 
