@@ -6,7 +6,6 @@ import org.apache.ibatis.annotations.Param;
 
 import com.it.elec.model.ElecosSystemDDL;
 
-import javassist.compiler.ast.Keyword;
 
 public interface ElecosSystemDDLDao {
 
