@@ -4,10 +4,13 @@
 <mapper  namespace="com.it.elec.dao.ElecosCommonMsgDao">
 
 	<resultMap type="ElecCommonMsg" id="baseResultMap">
-		<id column="com_id" property="comID"/>
+		<id column="com_id" property="comId"/>
 		<result column="station_run" property="stationRun"/>
 		<result column="dev_run" property="devRun"/>
-		<result column="create_time" property="createDate"/>
+		<result column="create_time" property="createTime"/>
+		<result column="update_time" property="updateTime"/>
+		<result column="createemp_id" property="createempId"/>
+		
 	</resultMap>
  	<sql id="baseColumList">
  		com_id,station_run,dev_run,create_time,update_time,createemp_id
