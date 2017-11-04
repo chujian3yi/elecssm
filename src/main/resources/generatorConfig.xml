@@ -3,7 +3,7 @@
 <generatorConfiguration>
 <!-- classPathEntry:数据库的JDBC驱动的jar包地址 -->
     <classPathEntry
-        location="D:\maven_repository\mysql\mysql-connector-java\5.1.38\mysql-connector-java-5.1.38.jar" />
+        location="F:\data\maven\.m2\repo\mysql\mysql-connector-java\5.1.38\mysql-connector-java-5.1.38.jar" />
   <context id="context1">
     <commentGenerator>
             <!-- 抑制警告 -->
@@ -32,10 +32,12 @@
     	<property name="enableSubPackages" value="true" />
     </javaClientGenerator>
     
+    <!-- 
     <table schema="elecos" tableName="elecos_commonmsg"
     domainObjectName="Commonmsg1">
         <property name="useActualColumnNames" value="false" />
-      <!-- <columnOverride column="???" property="???" /> -->
+     													 <!-- <columnOverride column="???" property="???" /> 
     </table>
+     -->
   </context>
 </generatorConfiguration>

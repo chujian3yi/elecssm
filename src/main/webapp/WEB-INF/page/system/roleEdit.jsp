@@ -51,11 +51,11 @@
 																	
 																	<c:choose>
 																		<c:when test="${popedom.flag =='1'}">
-																			<input type="checkbox"  name="selectoper" id='<c:out value="${popedom.pid }"/>_<c:out value="${popedom.mid }"/>'  value='<c:out value="${popedom.pid }"/>_<c:out value="${popedom.mid }"/>'  onClick='goSelect(this.id)' checked="checked" >
+																			<input type="checkbox"  name="selectoper" id='<c:out value="${popedom.pid }"/>_<c:out value="${popedom.mid }"/>'  value='<c:out value="${popedom.mid }"/>_<c:out value="${popedom.pid }"/>' onClick='goSelect(this.id)' checked="checked" >
 																		</c:when>
 																		
 																		<c:when test="${popedom.flag=='2' }">
-																			<input type="checkbox"  name="selectoper" id='<c:out value="${popedom.pid }"/>_<c:out value="${popedom.mid }"/>'  value='<c:out value="${popedom.pid }"/>_<c:out value="${popedom.mid }"/>'  onClick='goSelect(this.id)' >
+																			<input type="checkbox"  name="selectoper" id='<c:out value="${popedom.pid }"/>_<c:out value="${popedom.mid }"/>'  value='<c:out value="${popedom.mid }"/>_<c:out value="${popedom.pid }"/>'  onClick='goSelect(this.id)' >
 																		</c:when>
 																	</c:choose>
 																	${popedom.popedomName }

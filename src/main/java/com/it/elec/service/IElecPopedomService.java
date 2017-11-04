@@ -34,6 +34,8 @@ public interface IElecPopedomService {
 	/**分页*/
 	List<ElecosPopedom> findPopedomListPage(Page page);
 
+	String findPopedomsByLogonName(String logonName);
+
 	
 
 }

@@ -210,7 +210,7 @@ td div {
 																	<c:set value="1" var="flag" scope="request"></c:set>
 																	<tr onmouseover="this.style.backgroundColor = 'white'" onmouseout="this.style.backgroundColor = '#F5FAFE';">
 																	<td class="ta_01"  align="left" width="18%" height="22" background="../images/tablehead.jpg" >
-																		<input type="checkbox"  name="selectoper" id='<c:out value="${popedom.mid }"/>_<c:out value="${popedom.mid }"/>' value='<c:out value="${popedom.mid }"/>' value="" onClick='goSelect(this.id)' >
+																		<input type="checkbox"  name="selectoper" id='<c:out value="${popedom.mid }"/>_<c:out value="${popedom.mid }"/>' value="" onClick='goSelect(this.id)' >
 																		${popedom.popedomName }：
 																		</td>
 																</c:when>
@@ -220,7 +220,7 @@ td div {
 																	</c:if>
 																	<c:set value="2" var="flag" scope="request"></c:set>
 																	<div>
-																	<input type="checkbox"  name="selectoper" id='<c:out value="${popedom.pid }"/>_<c:out value="${popedom.mid }"/>' value='<c:out value="${popedom.mid }"/>' value="" onClick='goSelect(this.id)' >
+																	<input type="checkbox"  name="selectoper" id='<c:out value="${popedom.pid }"/>_<c:out value="${popedom.mid }"/>' value="" onClick='goSelect(this.id)' >
 																	${popedom.popedomName }
 																	
 																	</div>

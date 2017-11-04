@@ -30,24 +30,31 @@ import com.it.elec.service.IElecCommonMsgService;
 @Service(value="elecCommonMsgService")
 public class ElecCommonMsgService implements IElecCommonMsgService {
 
-	private ElecosCommonMsgDao elecosCommonMsgMapper;
+	private ElecosCommonMsgDao elecosCommonMsgDao;
 
 	
-	public ElecosCommonMsgDao getElecosCommonMsgMapper() {
-		return elecosCommonMsgMapper;
+	public ElecosCommonMsgDao getElecosCommonMsgDao() {
+		return elecosCommonMsgDao;
 	}
 
 	@Autowired
-	public void setElecosCommonMsgMapper(ElecosCommonMsgDao elecosCommonMsgMapper) {
-		this.elecosCommonMsgMapper = elecosCommonMsgMapper;
+	public void setElecosCommonMsgDao(ElecosCommonMsgDao elecosCommonMsgDao) {
+		this.elecosCommonMsgDao = elecosCommonMsgDao;
 	}
 
 	/**
 	 * 查询监控信息
 	 */
 	@Override
-	public List<ElecCommonMsg> listCommonMsg(ElecCommonMsg msg) {
-		return elecosCommonMsgMapper.listCommonMsg(msg);
+	public List<ElecCommonMsg> listCommonMsg() {
+		return elecosCommonMsgDao.listCommonMsg();
+	}
+
+	@Override
+	public void save(ElecCommonMsg elecCommonMsg) {
+		// TODO Auto-generated method stub
+		elecosCommonMsgDao.save(elecCommonMsg);
+		
 	}
 	
 }

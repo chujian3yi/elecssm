@@ -64,8 +64,8 @@ public class ElecRoleService implements IElecRoleService {
 		if (elecosRolePopedomList!=null && elecosRolePopedomList.size()>0) {
 			for (ElecosRolePopedom elecosRolePopedom : elecosRolePopedomList) {
 				buffer.append(elecosRolePopedom.getMid().toString()).append("@");
-				buffer.deleteCharAt(buffer.length()-1);
 			}
+			buffer.deleteCharAt(buffer.length()-1);
 		}
 		
 		/**
@@ -103,8 +103,8 @@ public class ElecRoleService implements IElecRoleService {
 		if (users!=null && users.size()>0) {
 			for (ElecosUser elecosUser : users) {
 				buffer.append(elecosUser.getUserId().toString()).append("@");
-				buffer.deleteCharAt(buffer.length()-1);
 			}
+			buffer.deleteCharAt(buffer.length()-1);
 		}
 		
 		String userIDs = buffer.toString();
@@ -119,5 +119,16 @@ public class ElecRoleService implements IElecRoleService {
 		}
 		
 		return list;
+	}
+
+	@Override
+	public boolean findRolePopedomByRoleId(Integer roleId, String mid, String pid) {
+		List<ElecosRolePopedom> list = elecosRolePopedomDao.findRolePopedomByRoleId(roleId,mid,pid);
+		
+		boolean flag = false;
+		if (list!=null && list.size()>0) {
+			flag=true;
+		}
+		return flag;
 	}
 }

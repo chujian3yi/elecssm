@@ -1,5 +1,6 @@
 package com.it.elec.service;
 
+import com.it.elec.model.ElecosRole;
 import com.it.elec.model.ElecosUser;
 
 import java.util.List;
@@ -10,4 +11,6 @@ import java.util.List;
 public interface IElecMenuService {
 
 	ElecosUser login(ElecosUser user);
+
+	List<ElecosRole> getRoleListByUser(ElecosUser elecosUser);
 }

@@ -12,5 +12,7 @@ public interface ElecosRolePopedomDao {
 
 	void save(ElecosRolePopedom elecosRolePopedom);
 
+	List<ElecosRolePopedom> findRolePopedomByRoleId(Integer roleId, String mid, String pid);
+
 
 }

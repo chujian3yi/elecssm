@@ -12,12 +12,12 @@ var setting ={
           
         },
     	key:{name:"popedomName"}
-    }
+    },
     /*async: {
         enable: true,                      //设置启用异步加载
         type: "get",                       //异步加载类型:post和get
         contentType: "application/json",   //定义ajax提交参数的参数类型，一般为json格式
-        url: "/Design/Get",                //定义数据请求路径
+        url: "${pageContext.request.contextPath}/elecMenuController/showMenu",                //定义数据请求路径
         autoParam: ["id=id", "name=name"]  //定义提交时参数的名称，=号前面标识节点属性，后面标识提交时json数据中参数的名称
     }*/
 };

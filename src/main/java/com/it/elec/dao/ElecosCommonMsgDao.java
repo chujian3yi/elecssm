@@ -8,9 +8,10 @@ public interface ElecosCommonMsgDao {
 
 	/**
 	 * 查询监控信息
-	 * @param msg
 	 * @return
 	 */
-	List<ElecCommonMsg> listCommonMsg(ElecCommonMsg msg);
+	List<ElecCommonMsg> listCommonMsg();
+
+	void save(ElecCommonMsg elecCommonMsg);
 
 }

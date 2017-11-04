@@ -38,6 +38,8 @@ public interface ElecosUserDao {
 
 	List<ElecosUser> findUsers();
 
+	void updateUser(ElecosUser elecosUser);
+
 	
 
 	

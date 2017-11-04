@@ -30,6 +30,7 @@
     	AND ur.role_id = rp.role_id
     	 AND rp.MID=p.MID
     	 AND rp.pid=p.pid
+    	 AND p.is_menu = 1
     	 AND u.logon_name= #{logonName}
     </select>
     

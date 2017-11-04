@@ -9,6 +9,12 @@
   <result property="logonName" column="logon_name"/>
   <result property="logonPwd" column="logon_pwd"/>
 </resultMap>
+<resultMap type="ElecosRole" id="roleResultMap">
+	<id property="roleId" column="role_id"/>
+	<result property="roleName" column="role_name"/>
+	<result property="createTime" column="create_time"/>
+	<result property="updateTime" column="update_time"/>
+</resultMap>
 	<!--find mid&pid by roleId  -->
 	<select id="findUserListByRoleId" resultMap="baseResultMap">
 	select t_u.user_id ,t_u.user_name,t_u.logon_name,t_u.logon_pwd
@@ -38,4 +44,11 @@
 		<if test="updateTime!=null ">#{updateTime},</if>
 		</trim>
 	</insert>
+	
+	<select id="getRoleListByUser" resultMap="roleResultMap">
+		select t_r.role_id,t_r.role_name,t_r.create_time,t_r.update_time
+		from user_role t_ur inner join elecos_role t_r
+		on t_ur.role_id = t_r.role_id
+		where t_ur.user_id = #{userId}
+	</select>
 </mapper>

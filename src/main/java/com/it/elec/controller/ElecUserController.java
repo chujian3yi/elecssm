@@ -18,6 +18,7 @@ import com.it.elec.model.ElecosSystemDDL;
 import com.it.elec.model.ElecosUser;
 import com.it.elec.service.IElecSystemDDLService;
 import com.it.elec.service.IElecUserService;
+import com.it.elec.util.AnnotationPermission;
 
 @Controller
 @RequestMapping(value="/elecUserController")
@@ -41,6 +42,7 @@ public class ElecUserController{
 	 * @Return:String
 	 */
 	@RequestMapping(value="/userIndex")
+	@AnnotationPermission(mid="an",pid="am")
 	public String home(HttpServletRequest request,ElecosUser user) {
 		List<ElecosUser> list = elecUserService.listUsers(user);
 		LOGGER.debug("用户列表： {}",list);
@@ -108,7 +110,7 @@ public class ElecUserController{
 	 */
 	@RequestMapping(value="/saveUser")
 	public String saveUser(ElecosUser elecosUser) {
-		elecosUser.setState("1");
+		
 		elecosUser.setCreateTime(new Date());
 		elecosUser.setUpdateTime(new Date());
 		

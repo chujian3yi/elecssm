@@ -33,4 +33,12 @@
 		<if test="pid!=null ">#{pid},</if>
 		</trim>
 	</insert>
+	
+	<select id="findRolePopedomByRoleId" resultMap="baseResultMap">
+		select role_id,MID,pid
+		from elecos_role_popedom
+		where role_id=#{roleId}
+		and MID=#{mid}
+		and pid=#{pid}
+	</select>
 </mapper>

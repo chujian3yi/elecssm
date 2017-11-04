@@ -25,7 +25,7 @@ public class ElecosUser {
     private String postId;
     private String remark;
   
-    private String state;
+    private long state=0L;
     private Date createTime;
     private Date updateTime;
     private String jctUnitId;
@@ -157,13 +157,6 @@ public class ElecosUser {
         this.remark = remark;
     }
 
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
 
     public Date getCreateTime() {
         return createTime;
@@ -262,6 +255,14 @@ public class ElecosUser {
 
 	public void setFlag(String flag) {
 		this.flag = flag;
+	}
+
+	public long getState() {
+		return state;
+	}
+
+	public void setState(long state) {
+		this.state = state;
 	}
 	
 	

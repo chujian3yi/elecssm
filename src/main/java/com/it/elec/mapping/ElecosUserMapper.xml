@@ -14,6 +14,7 @@
   <result property="mobile" column="mobile"/>
   <result property="isDuty" column="is_duty"/>
   <result property="postId" column="post_id"/>
+  <result property="state" column="state"/>
 </resultMap>
 <sql id="baseColumn">
 user_id,jct_id,user_name,logon_name, logon_pwd,  sex_id  ,birthday ,address, email ,mobile, is_duty, post_id
@@ -151,6 +152,59 @@ user_id,jct_id,user_name,logon_name, logon_pwd,  sex_id  ,birthday ,address, ema
             <if test="jctUnitId!=null and jctUnitId!=''">#{jctUnitId},</if>
     	</trim>
     </insert>
+    
+    <update id="updateUser">
+    update elecos_user
+    	<trim prefix="(" suffix=")" suffixOverrides=",">
+    	
+    	<if test="userId!=null and userId!=''">user_id,</if>
+		<if test="jctId!=null and jctId!=''">jct_id,</if>
+		<if test="userName!=null and userName!=''">user_name,</if>
+		<if test="logonName!=null and logonName!=''">logon_name,</if>
+		<if test="logonPwd!=null and logonPwd!=''">logon_pwd,</if>
+		<if test="sexId!=null and sexId!=''">sex_id,</if>
+		<if test="birthday!=null ">birthday,</if>
+		<if test="address!=null and address!=''">address,</if>
+		<if test="email!=null and email!=''">email,</if>
+		<if test="contactTel!=null and contactTel!=''">contact_tel,</if>
+		<if test="mobile!=null and mobile!=''">mobile,</if>
+		<if test="isDuty!=null and isDuty!=''">is_duty,</if>
+		<if test="postId!=null and postId!=''">post_id,</if>
+		<if test="remark!=null and remark!=''">remark,</if>
+		<if test="ondutyDate!=null ">onduty_date,</if>
+		<if test="offdutyDate!=null">offduty_date,</if>
+		<if test="state!=null and state!=''">state,</if>
+		<if test="createTime!=null ">create_time,</if>
+		<if test="updateTime!=null ">update_time,</if>
+		<if test="jctUnitId!=null and jctUnitId!=''">jct_unit_id,</if>
+    	</trim>
+    
+    	<trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userId!=null and userId!=''">#{userId},</if>
+            <if test="jctId!=null and jctId!=''">#{jctId},</if>
+            <if test="userName!=null and userName!=''">#{userName},</if>
+            <if test="logonName!=null and logonName!=''">#{logonName},</if>
+            <if test="logonPwd!=null and logonPwd!=''">#{logonPwd},</if>
+            <if test="sexId!=null and sexId!=''">#{sexId},</if>
+            <if test="birthday!=null">#{birthday},</if>
+            <if test="address!=null and address!=''">#{address},</if>
+            <if test="email!=null and email!=''">#{email},</if>
+              <if test="contactTel!=null and contactTel!=''">#{contactTel},</if>
+            <if test="mobile!=null and mobile!=''">#{mobile},</if>
+            <if test="isDuty!=null and isDuty!=''">#{isDuty},</if>
+            <if test="postId!=null and postId!=''">#{postId},</if>
+
+            <if test="remark!=null and remark!=''">#{remark},</if>
+            <if test="ondutyDate!=null ">#{ondutyDate},</if>
+            <if test="offdutyDate!=null">#{offdutyDate},</if>
+            <if test="state!=null and state!=''">#{state},</if>
+            <if test="createTime!=null ">#{createTime},</if>
+            <if test="updateTime!=null">#{updateTime},</if>
+            <if test="jctUnitId!=null and jctUnitId!=''">#{jctUnitId},</if>
+    	</trim>
+    	where user_id = #{usreId}
+    
+    </update>
     
     <delete id="delete">
     	delete 

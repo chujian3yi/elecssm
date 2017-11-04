@@ -1,5 +1,5 @@
 <%@ page language="java"  pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="s" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <meta http-equiv="Content-Language" content="zh-cn">
@@ -61,16 +61,15 @@
                                     <td height="313" width="73%"></td>
                                     <td height="99" width="27%">
                                         <table border="0" width="70%" id="table4">
-                                          
                                             <tr>
                                                 <td width="100"><img border="0" src="${pageContext.request.contextPath}/images/yonghu.jpg" width="75" height="20"></td>
-                                                <td><input type="text" name="logonName" style="width: 125 px" size="20" value=""  maxlength="25"></td>
+                                                <td><input type="text" name="logonName" style="width: 125 px" size="20" value="${requestScope.logonName }"  maxlength="25"></td>
 
                                             </tr>
                                             <tr>
                                                 <td width="100"><img border="0" src="${pageContext.request.contextPath}/images/mima.jpg" width="75" height="20"></td>
                                                 <td><input type="password" name="logonPwd" style="width: 125 px" size="20"
-                                                           value=""  maxlength="25"></td>
+                                                           value='<c:out value="${requestScope.logonPwd }"></c:out>'  maxlength="25"></td>
 
                                             </tr>
 
@@ -94,7 +93,7 @@
                                             <tr>
                                                 <td width="100"><img border="0" src="${pageContext.request.contextPath}/images/remeber.jpg" width="75" height="20"></td>
                                                 <td>
-                                                    <input type="checkbox" name="remeberMe" id="remeberMe" value="yes" checked="${requestScope.checked}"/>
+                                                    <input type="checkbox" name="rememberMe" id="rememberMe" value="yes" ${requestScope.checked}/>
                                                 </td>
                                             </tr>
 

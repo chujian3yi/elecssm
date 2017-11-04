@@ -8,23 +8,28 @@
 <script language="javascript" src="${pageContext.request.contextPath }/script/function.js"></script>
 <script language="javascript" src="${pageContext.request.contextPath }/script/limitedTextarea.js"></script>
 <script language="javascript" src="${pageContext.request.contextPath }/script/showText.js"></script>
+<script language="javascript" src="${pageContext.request.contextPath }/ckeditor/ckeditor.js"></script>
+<script language="javascript" src="${pageContext.request.contextPath }/ckeditor/config.js"></script>
   <script language="javascript"> 
   function checkchar(){
   
-	  	if(document.Form2.stationRun.value.length>2500){
+	  if(document.Form2.stationRun.value.length>2500){
 	  
 	     	alert("站点运行情况字数不能超过2500字");
 	     	return;
 	  	}
-	  	if(document.Form2.devRun.value.length>2500){
+		if(document.Form2.devRun.value.length>2500){
 	  
 	     	alert("设备运行情况字数不能超过2500字");
 	     	return;
 	  	}
-  		document.Form2.action="system/elecCommonMsgAction_save.do";
+  		document.Form2.action="${pageContext.request.contextPath }/elecCommonMsgController/save";
   		document.Form2.submit();
   		alert(" 待办事宜保存成功!");
   }
+  
+  
+  
   function addEnter(element){
    		document.getElementById(element).value = document.getElementById(element).value+"<br>";
    
@@ -40,6 +45,8 @@
   }
   window.onload=function(){
 		checkTextAreaLen();
+		
+
   }
   
   </script>
@@ -76,15 +83,16 @@
 							<tr onmouseover="this.style.backgroundColor = 'white'" onmouseout="this.style.backgroundColor = '#F5FAFE';">
 								<td style="HEIGHT:22px" align="center" width="40%">
 									<div class="scrollStyle" align="left" onmouseover="showInfoWithPanel(this)" onmouseout="hiddenInfoPanel(this)" style="table-layout:fixed;">
-											<c:out value="${commonMsg.devRun }"></c:out>
+											<c:out value="${elecCommonMsg.stationRun }"></c:out>
 									</div>
 								</td>
 								<td style="HEIGHT:22px" align="center" width="40%">
 									<div class="scrollStyle" align="left" onmouseover="showInfoWithPanel(this)" onmouseout="hiddenInfoPanel(this)" style="table-layout:fixed;">
-											<c:out value="${commonMsg.devRun }"></c:out>									</div>
+											<c:out value="${elecCommonMsg.devRun }"></c:out>									
+									</div>
 								</td>
 								<td style="HEIGHT:22px" align="center" width="20%">
-									2010-08-08 12:55:55 
+										<c:out value="${elecCommonMsg.createTime }"></c:out>
 								</td>
 							</tr>
 							
@@ -110,16 +118,17 @@
 			<td class="ta_01" align="center" bgcolor="#f5fafe" width="15%">站点运行情况：</td>
 			<td class="ta_01" bgcolor="#ffffff" style="word-break: break-all">
 	
-				<textarea name="stationRun" id="stationRun"   style="width: 500px; height: 160px; padding: 1;FONT-FAMILY: 宋体; FONT-SIZE: 9pt" onkeydown="if(event.keyCode==13)addEnter('stationRun');">9点站点运行正常</textarea>
+	
+				
+				<textarea name="stationRun" id="stationRun"   style="width: 500px; height: 160px; padding: 1;FONT-FAMILY: 宋体; FONT-SIZE: 9pt" onkeydown="if(event.keyCode==13)addEnter('stationRun');"></textarea>
 			</td>
 			
 		</tr>
 		<tr>
 			<td class="ta_01" align="center" bgcolor="#f5fafe" width="15%">设备运行情况：</td>
 			<td class="ta_01" bgcolor="#ffffff" style="word-break: break-all">
-				<textarea name="devRun" id="devRun"  style="width: 500px; height: 160px; padding: 1;FONT-FAMILY: 宋体; FONT-SIZE: 9pt" onkeydown="if(event.keyCode==13)addEnter('devRun');">9点设备运行正常</textarea>
+				<textarea name="devRun" id="devRun"  style="width: 500px; height: 160px; padding: 1;FONT-FAMILY: 宋体; FONT-SIZE: 9pt" onkeydown="if(event.keyCode==13)addEnter('devRun');"></textarea>
 			</td>
-			
 		</tr>
         <tr>
 			<td class="ta_01" style="width: 100%" align="center" bgcolor="#f5fafe" colspan="2">

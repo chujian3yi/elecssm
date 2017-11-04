@@ -157,6 +157,23 @@ public class ElecPopedomService implements IElecPopedomService {
 		
 	}
 
+	@Override
+	public String findPopedomsByLogonName(String logonName) {
+		// TODO Auto-generated method stub
+		ElecosUser user = new ElecosUser();
+		user.setLogonName(logonName);
+		StringBuffer sbuf = new StringBuffer();
+		List<ElecosPopedom> list = elecosPopedomDao.findPopedomsByUser(user);
+		if (list!=null && list.size()>0) {
+			for (ElecosPopedom elecosPopedom : list) {
+				sbuf.append(elecosPopedom.getMid()).append("@");
+			}
+			sbuf.deleteCharAt(sbuf.length()-1);
+		}
+		
+		return sbuf.toString();
+	}
+
 	
 
 
